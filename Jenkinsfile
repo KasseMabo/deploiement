@@ -5,7 +5,7 @@ pipeline {
         stage('Docker Build Image'){
             steps{
                 script{
-                    sh 'docker build -t kasse:v1 .'
+                    sh 'docker build -t kasse:v2 .'
                 }
             }
 
@@ -14,7 +14,7 @@ pipeline {
         stage('Docker tag image') {
             steps {
                 script {
-                    sh 'docker tag kasse:v1 abdoukasse/kasse:v1'
+                    sh 'docker tag kasse:v2 abdoukasse/kasse:v2'
                     sh 'docker images'
                 }
             }
@@ -23,7 +23,7 @@ pipeline {
         stage('Docker push image') {
             steps {
                 script {
-                    sh 'docker push abdoukasse/kasse:v1'
+                    sh 'docker push abdoukasse/kasse:v2'
                 }
             }
         }
